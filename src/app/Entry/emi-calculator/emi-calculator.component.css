@@ -1,0 +1,9 @@
+.head{
+  margin-left: auto;
+  margin-right: auto;
+  color: rgb(78, 214, 219);
+    font-weight: bold;
+    margin: top 100px;
+    background-color: rgb(206, 29, 29);
+    border-radius: 4px;
+}
