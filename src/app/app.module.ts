@@ -19,7 +19,10 @@ import { SidebarComponent } from './Admin-Dashboard/sidebar/sidebar.component';
 import { HeaderComponent } from './Admin-Dashboard/header/header.component';
 import { EmiCalculatorComponent } from './Entry/emi-calculator/emi-calculator.component';
 import { Ng5SliderModule } from 'ng5-slider';
-import  {HttpClientModule} from "@angular/common/http"
+import  {HttpClientModule} from "@angular/common/http";
+import { FAQSComponent } from './Entry/faq-s/faq-s.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import  {HttpClientModule} from "@angular/common/http"
     SidebarComponent,
     HeaderComponent,
     EmiCalculatorComponent,
-
+    FAQSComponent,
+     
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,7 @@ import  {HttpClientModule} from "@angular/common/http"
     ReactiveFormsModule,
     BrowserAnimationsModule,
     Ng5SliderModule,
-    HttpClientModule
+    HttpClientModule,PdfViewerModule,NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

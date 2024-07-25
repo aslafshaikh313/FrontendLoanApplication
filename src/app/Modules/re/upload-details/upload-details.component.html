@@ -1,0 +1,617 @@
+<div class="container ">
+  <div class="row justify-content-center">
+    <div
+      class="col-12  text-center p-0 mt-3 mb-2" style="margin-left: auto;margin-right: auto;"
+    >
+    <ul id="progressbar" >
+      <li [ngClass]="step >= 1 ? 'active ' : 'inactive'" id="account">
+        <strong>Account</strong>
+      </li>
+      <li [ngClass]="step >= 2 ? 'active ' : 'inactive'" id="personal">
+        <strong>Personal</strong>
+      </li>
+      <li [ngClass]="step >= 3 ? 'active ' : 'inactive'" id="personal">
+        <strong>Address Deitails</strong>
+      </li>
+      <li [ngClass]="step >= 4 ? 'active ' : 'inactive'" id="personal">
+        <strong>Documents Upload</strong>
+      </li>
+      <li [ngClass]="step >= 5 ? 'active ' : 'inactive'" id="personal">
+        <strong>Profession</strong>
+      </li>
+      <li [ngClass]="step >= 6 ? 'active ' : 'inactive'" id="personal">
+        <strong>Property Details</strong>
+      </li>
+      <!-- <li [ngClass]="step>=3 ? 'active ' : 'inactive'" id="payment"><strong>Image</strong></li> -->
+      <li [ngClass]="step >= 7 ? 'active ' : 'inactive'" id="personal">
+        <strong>Bank Details</strong>
+      </li>
+      <li [ngClass]="step >= 8 ? 'active ' : 'inactive'" id="personal">
+        <strong>Guarantor Details</strong>
+      </li>
+      <li [ngClass]="step >= 9 ? 'active ' : 'inactive'" id="personal">
+        <strong>Finish</strong>
+      </li>
+    </ul>
+    <div class="progress">
+      <div
+        *ngIf="step == 1"
+        class="progress-bar progress-bar-striped progress-bar-animated bg-primary bg-blue"
+        role="progressbar"
+        style="width: 11.11%"
+        aria-valuenow="75"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      ></div>
+      <div
+        *ngIf="step == 2"
+        class="progress-bar progress-bar-striped progress-bar-animated bg-primary bg-blue"
+        role="progressbar"
+        style="width: 22.22%"
+        aria-valuenow="75"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      ></div>
+
+      <div
+        *ngIf="step == 3"
+        class="progress-bar progress-bar-striped progress-bar-animated bg-primary bg-blue"
+        role="progressbar"
+        style="width: 33.33%"
+        aria-valuenow="75"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      ></div>
+      <div
+        *ngIf="step == 4"
+        class="progress-bar progress-bar-striped progress-bar-animated bg-primary bg-blue"
+        role="progressbar"
+        style="width: 44.44%"
+        aria-valuenow="75"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      ></div>
+      <div
+        *ngIf="step == 5"
+        class="progress-bar progress-bar-striped progress-bar-animated bg-primary bg-blue"
+        role="progressbar"
+        style="width: 55.55%"
+        aria-valuenow="75"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      ></div>
+      <div
+        *ngIf="step == 6"
+        class="progress-bar progress-bar-striped progress-bar-animated bg-primary bg-blue"
+        role="progressbar"
+        style="width: 66.66%"
+        aria-valuenow="75"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      ></div>
+      <div
+        *ngIf="step == 7"
+        class="progress-bar progress-bar-striped progress-bar-animated bg-primary bg-blue"
+        role="progressbar"
+        style="width: 77.77%"
+        aria-valuenow="75"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      ></div>
+      <div
+      *ngIf="step == 8"
+      class="progress-bar progress-bar-striped progress-bar-animated bg-primary bg-blue"
+      role="progressbar"
+      style="width: 88.88%"
+      aria-valuenow="75"
+      aria-valuemin="0"
+      aria-valuemax="100"
+    ></div>
+    <div
+      *ngIf="step == 9"
+      class="progress-bar progress-bar-striped progress-bar-animated bg-primary bg-blue"
+      role="progressbar"
+      style="width: 100%"
+      aria-valuenow="75"
+      aria-valuemin="0"
+      aria-valuemax="100"
+    ></div>
+    </div>
+
+      <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+        <h2 id="heading">Loan Application </h2>
+        <p>Fill all form field to go to next step</p>
+
+        <div id="msform" style="width:50%;height: auto;margin-left: auto;margin-right: auto;">
+          <!-- progressbar -->
+
+
+
+          <br />
+          <!-- fieldsets -->
+          <fieldset *ngIf="step == 1">
+            <form [formGroup]="acoountForm">
+              <div class="form-card">
+                <div class="row">
+                  <div class="col-7">
+                    <h2 class="fs-title">Account Information:</h2>
+                  </div>
+                  <div class="col-5">
+                    <h2 class="steps">Step 1 - 9</h2>
+                  </div>
+                </div>
+                <label class="fieldlabels">First Name: *</label>
+                <input
+                  type="text"
+                  formControlName="userFirstName"
+                  placeholder="First Name"
+                />
+                <label class="fieldlabels">Last Name: *</label>
+                <input
+                  type="text"
+                  formControlName="userLastName"
+                  placeholder="Last Name"
+                />
+                <label class="fieldlabels">Contact No.: *</label>
+                <input
+                  type="text"
+                  formControlName="userMobileNo"
+                  placeholder="Contact No."
+                />
+
+                <label class="fieldlabels">Pancard No: *</label>
+                <input
+                  type="text"
+                  formControlName="userPanCardNo"
+                  placeholder="Contact No."
+                />
+
+                <div class="row w-100">
+                  <label class="fieldlabels">Gender : *</label>
+                  <div class="col-6">
+                  <input
+                      type="radio"
+                      formControlName="userGender"
+                      value="Male"
+                      placeholder="Contact No."
+                      style="width:40px"
+                    />Male
+                  </div>
+                  <div class="col-6">
+                    <input
+                      type="radio"
+                      formControlName="userGender"
+                      value="Female"
+                      placeholder="Contact No."
+                      style="width:40px"
+                    />Female
+                  </div>
+                </div>
+              </div>
+              <input
+                type="button"
+                name="next"
+                class="next action-button"
+                (click)="next()"
+                value="Next"
+              />
+            </form>
+          </fieldset>
+          <fieldset *ngIf="step == 2">
+            <form [formGroup]="acoountForm">
+              <div class="form-card">
+                <div class="row">
+                  <div class="col-7">
+                    <h2 class="fs-title">Personal Information:</h2>
+                  </div>
+                  <div class="col-5">
+                    <h2 class="steps">Step 2 - 9</h2>
+                  </div>
+                </div>
+                <label class="fieldlabels">Email: *</label>
+                <input
+                  type="email"
+                  formControlName="userEmailId"
+                  placeholder="Email Id"
+                />
+                <label class="fieldlabels">Username: *</label>
+                <input
+                  type="text"
+                  formControlName="userUserName"
+                  placeholder="UserName"
+                />
+                <label class="fieldlabels">Password: *</label>
+                <input
+                  type="password"
+                  formControlName="userPassword"
+                  placeholder="Password"
+                />
+                <!-- <label  class="fieldlabels">Your Cibil Score: *</label> -->
+                <input
+                  type="hidden"
+                  formControlName="cibil"
+                />
+
+              </div>
+              <input
+                type="button"
+                name="next"
+                class="next action-button me-3"
+                (click)="next()"
+                value="Next"
+              />
+              <input
+                type="button"
+                name="previous"
+                class="previous action-button-previous"
+                (click)="previous()"
+                value="Previous"
+              />
+
+            </form>
+          </fieldset>
+          <fieldset *ngIf="step == 3">
+            <form [formGroup]="addressForm">
+              <div class="form-card">
+                <div class="row">
+                  <div class="col-7">
+                    <h2 class="fs-title">Address Information:</h2>
+                  </div>
+                  <div class="col-5">
+                    <h2 class="steps">Step 3 - 9</h2>
+                  </div>
+                </div>
+                <label class="fieldlabels">Area Name *</label>
+                <input
+                  type="email"
+                  formControlName="localAreaName"
+                  placeholder="Area name"
+                />
+                <label class="fieldlabels">Street Name: *</label>
+                <input
+                  type="text"
+                  formControlName="localStreetName"
+                  placeholder="street name"
+                />
+                <label class="fieldlabels">Landmark: *</label>
+                <input
+                  type="text"
+                  formControlName="localLandmark"
+                  placeholder="landmark"
+                />
+                <label class="fieldlabels">PinCode: *</label>
+                <input
+                  type="text"
+                  formControlName="localPinCode"
+                  placeholder="pincode"
+                />
+                <label class="fieldlabels">HouseNo: *</label>
+                <input
+                  type="text"
+                  formControlName="localHouseNo"placeholder="house no"
+                />
+
+               <label class="fieldlabels">CityName: *</label>
+                <input
+                  type="text"
+                  formControlName="localCityName"placeholder="city name"
+                />
+
+                <label class="fieldlabels">State: *</label>
+                <input
+                  type="text"
+                  formControlName="localState"placeholder="state"
+                />
+
+
+               </div>
+
+
+              <input
+                type="button"
+                name="next"
+                class="next action-button me-3"
+                (click)="next()"
+                value="Next"
+              />
+              <input
+              type="button"
+              name="previous"
+              class="previous action-button-previous"
+              (click)="previous()"
+              value="Previous"
+            />
+            </form>
+          </fieldset>
+          <fieldset *ngIf="step == 5">
+            <form [formGroup]="professionForm">
+              <div class="form-card">
+                <div class="row">
+                  <div class="col-7">
+                    <h2 class="fs-title">Profession Information:</h2>
+                  </div>
+                  <div class="col-5">
+                    <h2 class="steps">Step 5 - 9</h2>
+                  </div>
+                </div>
+                <label class="fieldlabels">Company Name: *</label>
+                <input
+                  type="email"
+                  formControlName="userCompanyName"
+                  placeholder="Company Name"
+                />
+                <label class="fieldlabels">Company Address: *</label>
+                <input
+                  type="text"
+                  formControlName="userCompanyAddress"
+                  placeholder="Company Address"
+                />
+                <label class="fieldlabels">Designation: *</label>
+                <input
+                  type="text"
+                  formControlName="userDesignation"
+                  placeholder="Designation"
+                />
+                <label class="fieldlabels">Income: *</label>
+                <input
+                  type="text"
+                  formControlName="userIncome"
+                  placeholder="Income"
+                />
+              </div>
+
+              <input
+                type="button"
+                name="next"
+                class="next action-button me-3"
+                (click)="next()"
+                value="Next"
+              />
+              <input
+              type="button"
+              name="previous"
+              class="previous action-button-previous"
+              (click)="previous()"
+              value="Previous"
+            />
+            </form>
+          </fieldset>
+          <fieldset *ngIf="step ==4">
+                        <form>
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Document Upload:</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Step 4 - 9</h2>
+                                    </div>
+                                </div>
+                                <label class="fieldlabels">Upload Your Adhar Card:</label>
+                                <input type="file"    (change)="getAdharFile($event)">
+                                <label class="fieldlabels">Upload Pancard:</label>
+                                <input type="file"     (change)="getPancardFile($event)">
+                                <label class="fieldlabels">Address Proof:</label><span>(Electricity Bill)</span>
+                                <input type="file"   (change)="getAddressFile($event)">
+                                <label class="fieldlabels">Upload Photo:</label>
+                                <input type="file"     (change)="getPhotoFile($event)">
+                                <label class="fieldlabels">Upload Signiture:</label>
+                                <input type="file"     (change)="getsSignitureFile($event)">
+
+                            </div>
+                            <input type="button" name="next" class="next action-button"(click)="next()"  value="Next"/>
+                            <input type="button" name="previous" class="previous action-button-previous"
+                                (click)="previous()" value="Previous" />
+
+                        </form>
+                    </fieldset>
+          <fieldset *ngIf="step == 6">
+            <form [formGroup]="propertiesForm">
+              <div class="form-card">
+                <div class="row">
+                  <div class="col-7">
+                    <h2 class="fs-title">Property Information:</h2>
+                  </div>
+                  <div class="col-5">
+                    <h2 class="steps">Step 6 - 9</h2>
+                  </div>
+                </div>
+        <label class="fieldlabels"> Property Type: *</label>
+                <input
+                  type="text"
+                  formControlName="propertyType"
+                  placeholder="Property Type"
+                />
+                <label class="fieldlabels">Property Location: *</label>
+                <input
+                  type="text"
+                  formControlName="propertyLocation"
+                  placeholder="Property Location"
+                />
+                <label class="fieldlabels">Property Value: *</label>
+                <input
+                  type="text"
+                  formControlName="propertyValue"
+                  placeholder="Property Value"
+                />
+              </div>
+              <input
+              type="button"
+              name="next"
+              class="next action-button me-3"
+              (click)="next()"
+              value="Next"
+            />
+            <input
+            type="button"
+            name="previous"
+            class="previous action-button-previous"
+            (click)="previous()"
+            value="Previous"
+          />
+            </form>
+          </fieldset>
+          <fieldset *ngIf="step == 7">
+            <form [formGroup]="bankDetails">
+              <div class="form-card">
+                <div class="row">
+                  <div class="col-7">
+                    <h2 class="fs-title">Bank Details:</h2>
+                  </div>
+                  <div class="col-5">
+                    <h2 class="steps">Step 7 - 9</h2>
+                  </div>
+                </div>
+        <label class="fieldlabels">BankAccountNo: *</label>
+                <input
+                  type="text"
+                  formControlName="userBankAccountNo"
+                  placeholder="Bank Account No"
+                />
+                <label class="fieldlabels">Bank Name : *</label>
+                <input
+                  type="text"
+                  formControlName="userBankName"
+                  placeholder="Bank Name"
+                />
+                <label class="fieldlabels">Bank Branch Name: *</label>
+                <input
+                  type="text"
+                  formControlName="userBankBranchName"
+                  placeholder="Bank Branch Name"
+                />
+                <label class="fieldlabels">Bank IfSC Code: *</label>
+                <input
+                  type="text"
+                  formControlName="userBankIfSCNo"
+                  placeholder="IfSC Code"
+                />
+              </div>
+              <input
+                type="button"
+                name="next"
+                class="next action-button me-3"
+                (click)="next()"
+                value="Next"
+              />
+            <input
+            type="button"
+            name="previous"
+            class="previous action-button-previous"
+            (click)="previous()"
+            value="Previous"
+          />
+            </form>
+          </fieldset>
+          <fieldset *ngIf="step == 8">
+            <form [formGroup]="GarantorForm">
+              <div class="form-card">
+                <div class="row">
+                  <div class="col-7">
+                    <h2 class="fs-title">Guarantor Information:</h2>
+                  </div>
+                  <div class="col-5">
+                    <h2 class="steps">Step 8 - 9</h2>
+                  </div>
+                </div>
+        <label class="fieldlabels"> Guarantor Name: *</label>
+                <input
+                  type="text"
+                  formControlName="gurantorName"
+                  placeholder="Guarantor Name"
+                />
+                <label class="fieldlabels">Guarantor DOB: *</label>
+                <input
+                  type="date"
+                  formControlName="gurantorDOB"
+                  placeholder="Guarantor DOB"
+                />
+                <label class="fieldlabels">Guarantor Relation With User: *</label>
+                <input
+                  type="text"
+                  formControlName="gurantorRelationWithUser"
+                  placeholder="Relation With User"
+                />
+                <label class="fieldlabels">Guarantor Mobile No: *</label>
+                <input
+                  type="text"
+                  formControlName="gurantorMobileNo"
+                  placeholder="Mobile No"
+                />
+                <label class="fieldlabels">Guarantor Address: *</label>
+                <input
+                  type="text"
+                  formControlName="gurantorAddress"
+                  placeholder="Address"
+                />
+                <label class="fieldlabels">Guarantor Occupation: *</label>
+                <input
+                  type="text"
+                  formControlName="gurantorOccupation"
+                  placeholder="Occupation"
+                />
+                <label class="fieldlabels">Guarantor AdharCard No: *</label>
+                <input
+                  type="text"
+                  formControlName="gurantorAdharCardNo"
+                  placeholder="AdharCard No"
+                />
+
+
+
+              </div>
+              <input type="button" name="next" class="next action-button" (click)="onSubmit()"
+              value="Submit" />
+            <input
+            type="button"
+            name="previous"
+            class="previous action-button-previous"
+            (click)="previous()"
+            value="Previous"
+          />
+            </form>
+          </fieldset>
+
+
+          <fieldset *ngIf="step == 9">
+            <div class="form-card">
+              <div class="row">
+                <div class="col-7">
+                  <h2 class="fs-title">Finish:</h2>
+                </div>
+                <div class="col-5">
+                  <h2 class="steps">Step 9 - 9</h2>
+                </div>
+              </div>
+              <br /><br />
+              <h2 class="purple-text text-center">
+                <strong>SUCCESS !</strong>
+              </h2>
+              <br />
+              <div class="row justify-content-center">
+                <div class="col-3">
+                  <img
+                    src="https://i.imgur.com/GwStPmg.png"
+                    class="fit-image"
+                  />
+                </div>
+              </div>
+              <br /><br />
+              <div class="row justify-content-center">
+                <div class="col-7 text-center">
+                  <h5 class="purple-text text-center">
+                    You Have Successfully  Submit Appliction Form
+                  </h5>
+
+                  <button class="btn btn-primary p-2" (click)="Done()">DONE</button>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

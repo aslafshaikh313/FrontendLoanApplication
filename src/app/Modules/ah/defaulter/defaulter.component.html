@@ -1,0 +1,120 @@
+<div class="row height d-flex justify-content-center align-items-center m-3">
+
+    <div class="col-md-8">
+
+        <div class="search">
+
+            <input type="text" class="form-control " name="search" [(ngModel)]="searchText" autocomplete="off"
+                placeholder="Search  ">
+
+        </div>
+
+    </div>
+    <div class="body">
+
+        <div class="container">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+
+                        <th scope="col">Name</th>
+
+                        <th scope="col">Email ID</th>
+                        <th scope="col">Mobile No</th>
+                        <th scope="col">Pancard No</th>
+                        <th scope="col">Total Amount</th>
+
+                        <th scope="col">Transanction History</th>
+
+
+
+                    </tr>
+                </thead>
+                <tbody *ngFor="let en of AllApprovedRegister |filter:searchText , index as i">
+                    <tr *ngIf="en.defaulter!=null || en.defaulter.emiStatus=='Unpaid'">
+
+
+                        <td>{{en.userFirstName}}
+                            {{en.userLastName}}</td>
+                        <td>{{en.userEmailId}}</td>
+                        <td>{{en.userMobileNo}}</td>
+                        <td>{{en.userPanCardNo}}</td>
+                        <td> {{en.loanDisburse.totalAmountPaid}} </td>
+
+                        <td>
+                            <a style="cursor: pointer" (click)="openLg(content,en.userId)"><i class="fa fa-eye ms-3"
+                                    aria-hidden="true"></i>
+                            </a>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <ng-template #content let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title">Transanctions History</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body text-center">
+            <div>
+
+                <div class="container">
+                    <div class="table-like">
+                        <div class="row">
+                            <div class="col">Installment No</div>
+                            <div class="col">EMI Amount</div>
+                            <div class="col">Paid Date</div>
+                            <div class="col">Due Date</div>
+
+                            
+                            <div class="col">Transanctions</div>
+
+                        </div>
+                        <div *ngFor="let en of Data">
+                            <div *ngIf="en.userId==Id">
+                                <div *ngFor="let e of en.ledger | orderBy :'emiNo' ">
+                                    <div class="row" *ngIf="e.emiStatus=='Paid'">
+                                        <div class="col">{{e.emiNo}} </div>
+                                        <div class="col"> {{e.emiamount}} </div>
+                                        <div class="col"> {{e.emiPaidDate}} </div>
+                                        <div class="col">__</div>
+                                       
+ 
+                                        <div class="col" style="color: rgb(29, 138, 15);"> <i>{{e.emiStatus}}</i></div>
+                                    </div>
+                                </div>
+                                <div *ngFor="let e of en.defaulter | orderBy :'emiNo' ">
+                                    <!-- <div>{{e|json}}</div> -->
+                                    <div class="row" *ngIf="e.emiStatus=='Unpaid'">
+                                        <div class="col">{{e.emiNo}} </div>
+                                        <div class="col"> {{e.emiAmount}} </div>
+                                        <div class="col">__</div>
+                                        <div class="col"> {{e.dateOfDueEMI}} </div>
+                                         
+ 
+                                        <div class="col" style="color: rgb(240, 9, 9);"> <i>{{e.emiStatus}}</i></div>
+                                    </div>
+                                </div>
+                                 
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" (click)="modal.close('Close click')">
+                Close
+            </button>
+        </div>
+    </ng-template>
+
+    <!-- <button class="btn btn-lg btn-outline-primary" (click)="open()">Launch demo modal</button> -->
+</div>

@@ -1,1 +1,58 @@
-<p>verify-document works!</p>
+<div class="row height d-flex justify-content-center align-items-center m-3">
+
+    <div class="col-md-8">
+
+      <div class="search">
+
+        <input type="text" class="form-control " name="search"  [(ngModel)]="searchText" autocomplete="off" placeholder="Search  ">
+
+      </div>
+
+    </div>
+<div class="body">
+
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email ID</th>
+                    <th scope="col">Mobile No</th>
+                    <th scope="col">Pancard No</th>
+                    <th scope="col">Cibil Score</th>
+                    <th scope="col">Cibil Status</th>
+                    <th scope="col">DOC Status</th>
+
+                    <th scope="col">Action</th>
+
+
+
+                </tr>
+            </thead>
+            <tbody *ngFor="let en of AllApprovedRegister |filter:searchText , index as i">
+                <tr   *ngIf="en.cibil.cibilStatus=='approved' ">
+                        <td>{{en.userFirstName}}
+                        {{en.userLastName}}</td>
+                        <td>{{en.userEmailId}}</td>
+                        <td>{{en.userMobileNo}}</td>
+                        <td>{{en.userPanCardNo}}</td>
+                        <td>{{en.cibil.cibilScore}}</td>
+                        <td style="color: green;font-weight: bold;">{{en.cibil.cibilStatus}}</td>
+
+
+                        <td style="color:rgb(42, 165, 73);">
+                            {{en.customerLoanStatus}} </td>
+
+                            <td>
+                              <a style="cursor: pointer;" (click)="view(en.userId)"><i class="fa fa-eye ms-3" aria-hidden="true"></i> </a>
+
+                          </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+

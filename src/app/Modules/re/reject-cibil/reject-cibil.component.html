@@ -1,1 +1,54 @@
-<p>reject-cibil works!</p>
+<div class="row height d-flex justify-content-center align-items-center m-3">
+  <div class="col-md-8">
+    <div class="search">
+      <input
+        type="text"
+        class="form-control"
+        name="search"
+        [(ngModel)]="searchText"
+        autocomplete="off"
+        placeholder="Search  "
+      />
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="container">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email ID</th>
+            <th scope="col">Mobile No</th>
+            <th scope="col">Pancard No</th>
+            <th scope="col">Cibil Score</th>
+            <th scope="col">Cibil Status</th>
+
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let en of AllRegister | filter : searchText; index as i">
+          <tr *ngIf="en.cibil.cibilStatus == 'rejected'">
+            <th scope="row">{{ en.userId }}</th>
+            <td>{{ en.userFirstName }}</td>
+            <td>{{ en.userLastName }}</td>
+            <td>{{ en.userEmailId }}</td>
+            <td>{{ en.userMobileNo }}</td>
+            <td>{{ en.userPanCardNo }}</td>
+            <td>{{ en.cibil.cibilScore }}</td>
+            <td style="color: red; font-weight: bold">
+              {{ en.cibil.cibilStatus }}
+            </td>
+            <td>
+              <a (click)="sendMail(en)" style="cursor: pointer"
+                ><i class="fa fa-paper-plane ms-4" aria-hidden="true"></i
+              ></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

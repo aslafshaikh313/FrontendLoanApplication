@@ -1,1 +1,128 @@
-<p>loan-disbusment works!</p>
+<div class="row height d-flex justify-content-center align-items-center m-3">
+    <div class="col-md-8">
+        <div class="search">
+            <input type="text" class="form-control" name="search" [(ngModel)]="searchText" autocomplete="off"
+                placeholder="Search  " />
+        </div>
+    </div>
+    <div class="body">
+        <div class="container">
+            <table class="table table-hover text-center">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+
+                        <th scope="col">Email ID</th>
+                        <th scope="col">Mobile No</th>
+                        <th scope="col">Pancard No</th>
+                        <th scope="col">Cibil Score</th>
+                        <th scope="col">Sanction Status</th>
+                        <th scope="col">Loan Disburse</th>
+
+                        <th scope="col">Send Mail</th>
+
+                    </tr>
+                </thead>
+                <tbody *ngFor="
+              let en of AllApprovedRegister | filter : searchText;
+              index as i
+            ">
+                    <tr *ngIf="en.customerLoanStatus == 'SanctionLetterGenerated'|| en.customerLoanStatus =='LoanDisbursed' || en.customerLoanStatus != 'pending'" >
+                        <td>{{ en.userFirstName }} {{ en.userLastName }}</td>
+                        <td>{{ en.userEmailId }}</td>
+                        <td>{{ en.userMobileNo }}</td>
+                        <td>{{ en.userPanCardNo }}</td>
+                        <td>{{ en.cibil.cibilScore }}</td>
+                        <td style="color: green; font-weight: bold">
+                            {{ en.customerLoanStatus }}
+                        </td>
+
+                        <a style="cursor: pointer" (click)="openLg(content,en.userId)"><i class="fa fa-pencil-square-o"
+                                aria-hidden="true"></i>
+                        </a>
+
+                        <td>
+                            <a style="cursor: pointer"><i class="fa fa-paper-plane ms-3" aria-hidden="true"></i></a>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <ng-template #content let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title">Sanction Letter Preview</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body text-center" *ngFor="
+      let en of AllApprovedRegister">
+            <div *ngIf="en.userId == sanctionss">
+
+                <h2 class="text-dark ">Loan Disbuse </h2>
+
+                <form class="custom-form volunteer-form mb-5 mb-lg-0 " role="form" [formGroup]="loanDisbusForm">
+
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <label for="" style="display: flex;">Loan Amount</label>
+                            <input type="text" id="volunteer-name" class="form-control"
+                                value="{{en.sanctionLetter.loanAmount}}" required>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                            <label for="" style="display: flex;">Total Amount Paid</label>
+                            
+                            <input type="text" formControlName="totalAmountPaid" id="volunteer-name" class="form-control"
+                                placeholder="total amount paid" required>
+                        </div>
+
+                        <div class="col-lg-12 col-12">
+                            <label for="" style="display: flex;">EMI Date</label>
+
+                            <input type="date" formControlName="emiDate" id="volunteer-email"  
+                                class="form-control"   required>
+                        </div>
+
+                        <div class="col-lg-12 col-12">
+                            <label for="" style="display: flex;">Bank Name</label>
+
+                            <input type="text"   id="volunteer-subject" class="form-control" value="{{en.userBankDetails.userBankName}}"
+                                 required>
+                        </div>
+                        <div class="col-lg-12 col-12">
+                            <label for="" style="display: flex;">Bank Account No.</label>
+
+                            <input type="text"   id="volunteer-subject" class="form-control" value="{{en.userBankDetails.userBankAccountNo}}"
+                                  required>
+                        </div>
+
+                        <div class="col-lg-12 col-12">
+                            <label for="" style="display: flex;">Bank IFSC Code</label>
+
+                            <input type="text"   id="volunteer-subject" class="form-control" value="{{en.userBankDetails.userBankIfSCNo}}"
+                                placeholder="Mobile No" required>
+                        </div>
+                        <div class="col-lg-12 col-12">
+                            <label for="" style="display: flex;">Branch Name</label>
+
+                            <input type="text"   id="volunteer-subject" class="form-control" value="{{en.userBankDetails.userBankBranchName}}"
+                                placeholder="Mobile No" required>
+                        </div>
+                    </div>
+
+
+                    <button type="submit" class="form-control" (click)="Submit(en)">Submit</button>
+                </form>
+
+
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" (click)="modal.close('Close click')">
+                Close
+            </button>
+        </div>
+    </ng-template>
+
+</div>

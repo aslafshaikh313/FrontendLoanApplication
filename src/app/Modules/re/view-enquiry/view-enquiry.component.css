@@ -1,0 +1,24 @@
+ /* Add some padding to the body so the table is centered */
+.body {
+    padding: 30px;
+  }
+
+  /* Add a hover effect to the table rows */
+  .table-hover tbody tr:hover {
+    background-color: #ffcdcd;
+    transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
+  }
+
+  /* Add an active effect to the table rows when clicked */
+  .table-active {
+    background-color: #e8e8e8 !important;
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+  }
+
+  /* Center the buttons in the last column */
+  .table .btn-group {
+    display: flex;
+    justify-content: center;
+  }

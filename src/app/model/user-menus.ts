@@ -3,29 +3,30 @@ export class UserMenus {
     //index:[0][RE]
     {
       RE: [
-        { lable: 'Add Enquiry', path: 'addenq' },
+        // { lable: 'Add Enquiry', path: 'addenq' },
         { lable: 'View Enquiry', path: 'viewenq' },
-        { lable: 'Requiest TO Cibil Check', path: 'cibil' },
+        { lable: 'Approved Cibil', path: 'approved' },
         { lable: 'Reject Enquiry', path: 'reject' },
-        // { lable: 'Create Loan Application', path: 'loanApp' },
-        // { lable: 'Send  Mail', path: 'sendMail' },
+        { lable: 'Document Status', path: 'docStatus' },
+        { lable: 'Sanction Status', path: 'sanctionstatus' },
       ],
       //index:[0][OE]
       OE: [
         { lable: 'Check Cibil', path: 'cibil' },
-        { lable: 'Verify Document', path: 'verifyDoc' },
+        { lable: 'Customer Verification', path: 'verifyDoc' },
       ],
 
       CM: [
-        { lable: 'Verify Document', path: 'verifyDocc' },
+     //   { lable: 'Verify Document', path: 'verifyDocc' },
         { lable: 'Genrate Sancation latter', path: 'sancation' },
       ],
 
       AH: [
         { lable: 'Loan Disbursment', path: 'loanDis' },
-        { lable: 'Leadger Management', path: 'leadgerM' },
+        { lable: 'Transactions', path: 'transaction' },
+        { lable: 'Ledger Management', path: 'ledger' },
+
         { lable: 'Defaulter', path: 'default' },
-        { lable: 'Clone Closure', path: 'clone' },
       ],
     },
   ];

@@ -1,0 +1,349 @@
+<div class="container-fluid px-1 py-5 mx-auto">
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-7 col-lg-8 col-md-9 col-11 ">
+            <div class="card">
+                <h5 class="text-center mb-4">Customer Application Details</h5>
+
+                <div *ngFor="let en of AllApprovedRegister">
+
+                    <div *ngIf="en.userId==Id">
+
+                        <fieldset>
+                            <legend>Personal Details</legend>
+
+                            <form class="form-card" onsubmit="event.preventDefault()">
+                                <div class="row justify-content-between text-left">
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3">First name<span class="text-danger">
+                                                *</span></label> <input type="text" id="fname"
+                                            value=" {{en.userFirstName}}" placeholder="Enter your first name"
+                                            disabled onblur="validate(1)">
+                                    </div>
+
+
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3">Last name<span class="text-danger">
+                                                *</span></label>
+                                        <input type="text" id="lname" name="lname" placeholder="Enter your last name"
+                                        disabled   value=" {{en.userLastName}}" onblur="validate(2)">
+                                    </div>
+                                </div>
+                                <div class="row justify-content-between text-left">
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3"> Email<span class="text-danger">
+                                                *</span></label> <input type="text" id="email" name="email"
+                                                disabled  value=" {{en.userEmailId}}" placeholder="" onblur="validate(3)"> </div>
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3">Phone number<span class="text-danger">
+                                                *</span></label> <input type="text" id="mob" name="mob" placeholder=""
+                                                disabled  value=" {{en.userMobileNo}}" onblur="validate(4)"> </div>
+                                </div>
+                                <div class="row justify-content-between text-left">
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3">Customer Pancard No.<span
+                                                class="text-danger">
+                                                *</span></label>
+                                        <input type="text" id="job" name="job" placeholder=""
+                                        disabled    value=" {{en.userPanCardNo}}" onblur="validate(5)">
+                                    </div>
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3">Gender<span class="text-danger">
+                                                *</span></label>
+                                        <input type="text" id="job" name="job" placeholder="" value=" {{en.userGender}}"
+                                        disabled   onblur="validate(5)">
+                                    </div>
+                                </div>
+                                <div class="row justify-content-between text-left">
+
+                                </div>
+
+                            </form>
+                        </fieldset>
+                        <hr style="color: red; ">
+                        <fieldset>
+                            <legend>Address Details</legend>
+
+                            <form class="form-card" onsubmit="event.preventDefault()">
+                                <div class="row justify-content-between text-left">
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3">Area Name<span class="text-danger">
+                                                *</span></label> <input type="text" id="fname"
+                                                disabled      value=" {{en.address.localAreaName}}" placeholder="Enter your first name"
+                                            onblur="validate(1)">
+                                    </div>
+
+
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3">Street Name<span class="text-danger">
+                                                *</span></label>
+                                        <input type="text" id="lname" name="lname" placeholder="Enter your last name"
+                                        disabled        value=" {{en.address.localStreetName}}" onblur="validate(2)">
+                                    </div>
+                                </div>
+                                <div class="row justify-content-between text-left">
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3"> Landmark<span class="text-danger">
+                                                *</span></label> <input type="text" id="email" name="email"
+                                                disabled        value=" {{en.address.localLandmark}}" placeholder="" onblur="validate(3)">
+                                    </div>
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3">House number<span class="text-danger">
+                                                *</span></label> <input type="text" id="mob" name="mob" placeholder=""
+                                                disabled        value=" {{en.address.localHouseNo}}" onblur="validate(4)"> </div>
+                                </div>
+                                <div class="row justify-content-between text-left">
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3"> City :-<span class="text-danger">
+                                                *</span></label>
+                                        <input type="text" id="job" name="job" placeholder=""
+                                        disabled        value=" {{en.address.localCityName}}" onblur="validate(5)">
+                                    </div>
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3">State<span class="text-danger">
+                                                *</span></label>
+                                        <input type="text" id="job" name="job" placeholder=""
+                                        disabled       value=" {{en.address.localState}}" onblur="validate(5)">
+                                    </div>
+                                </div>
+                                <div class="row justify-content-between text-left">
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3">Pincode<span class="text-danger">
+                                                *</span></label>
+                                        <input type="text" id="job" name="job" placeholder=""
+                                        disabled        value=" {{en.address.localPinCode}}" onblur="validate(5)">
+                                    </div>
+                                </div>
+
+                            </form>
+                        </fieldset>
+                        <hr style="color: red; ">
+                        <fieldset>
+                            <legend>Profession Details</legend>
+
+                            <form class="form-card" onsubmit="event.preventDefault()">
+                                <div class="row justify-content-between text-left">
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3">Company Name<span class="text-danger">
+                                                *</span></label> <input type="text" id="fname"
+                                                disabled      value=" {{en.profession.userCompanyName}}" placeholder="Enter your first name"
+                                            onblur="validate(1)">
+                                    </div>
+
+
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3">Company Address<span class="text-danger">
+                                                *</span></label>
+                                        <input type="text" id="lname" name="lname" placeholder="Enter your last name"
+                                        disabled     value=" {{en.profession.userCompanyAddress}}" onblur="validate(2)">
+                                    </div>
+                                </div>
+                                <div class="row justify-content-between text-left">
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3">Designation<span class="text-danger">
+                                                *</span></label> <input type="text" id="email" name="email"
+                                                disabled          value=" {{en.profession.userDesignation}}" placeholder="" onblur="validate(3)">
+                                    </div>
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3">Income<span class="text-danger">
+                                                *</span></label> <input type="text" id="mob" name="mob" placeholder=""
+                                                disabled           value=" {{en.profession.userIncome}}" onblur="validate(4)"> </div>
+                                </div>
+                                 
+                                 
+
+                            </form>
+                        </fieldset>
+                        <hr style="color: red; ">
+                        <fieldset>
+                            <legend>Property Details</legend>
+
+                            <form class="form-card" onsubmit="event.preventDefault()">
+                                <div class="row justify-content-between text-left">
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3">Property Type<span class="text-danger">
+                                                *</span></label> <input type="text" id="fname"
+                                                disabled    value=" {{en.property.propertyType}}" placeholder="Enter your first name"
+                                            onblur="validate(1)">
+                                    </div>
+
+
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3">Location<span class="text-danger">
+                                                *</span></label>
+                                        <input type="text" id="lname" name="lname" placeholder="Enter your last name"
+                                        disabled    value=" {{en.property.propertyLocation}}" onblur="validate(2)">
+                                    </div>
+                                </div>
+                                <div class="row justify-content-between text-left">
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3"> Property Value <span class="text-danger">
+                                                *</span></label> <input type="text" id="email" name="email"
+                                                disabled           value=" {{en.property.propertyValue}}" placeholder="" onblur="validate(3)">
+                                    </div>
+                                     
+                                </div>
+                                 
+                                
+
+                            </form>
+                        </fieldset>
+                        <hr style="color: red; ">
+                        <fieldset>
+                            <legend>Bank Details</legend>
+
+                            <form class="form-card" onsubmit="event.preventDefault()">
+                                <div class="row justify-content-between text-left">
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3">Bank Account Number<span class="text-danger">
+                                                *</span></label> <input type="text" id="fname"
+                                                disabled         value=" {{en.userBankDetails.userBankAccountNo}}" placeholder="Enter your first name"
+                                            onblur="validate(1)">
+                                    </div>
+
+
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3">Bank Name<span class="text-danger">
+                                                *</span></label>
+                                        <input type="text" id="lname" name="lname" placeholder="Enter your last name"
+                                        disabled       value=" {{en.userBankDetails.userBankName}}" onblur="validate(2)">
+                                    </div>
+                                </div>
+                                <div class="row justify-content-between text-left">
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3"> Bank Branch Name<span class="text-danger">
+                                                *</span></label> <input type="text" id="email" name="email"
+                                                disabled               value=" {{en.userBankDetails.userBankBranchName}}" placeholder="" onblur="validate(3)">
+                                    </div>
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3">IFSC No.<span class="text-danger">
+                                                *</span></label> <input type="text" id="mob" name="mob" placeholder=""
+                                                disabled               value=" {{en.userBankDetails.userBankIfSCNo}}" onblur="validate(4)"> </div>
+                                </div>
+                                 
+                                 
+
+                            </form>
+                        </fieldset>
+                        <hr style="color: red; ">
+                        <fieldset>
+                            <legend>Guarantor Details</legend>
+
+                            <form class="form-card" onsubmit="event.preventDefault()">
+                                <div class="row justify-content-between text-left">
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3">Gurantor Name<span class="text-danger">
+                                                *</span></label> <input type="text" id="fname"
+                                                disabled    value=" {{en.guarantorDetails.gurantorName}}" placeholder="Enter your first name"
+                                            onblur="validate(1)">
+                                    </div>
+
+
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3">Gurantor DOB<span class="text-danger">
+                                                *</span></label>
+                                        <input type="text" id="lname" name="lname" placeholder="Enter your last name"
+                                        disabled  value=" {{en.guarantorDetails.gurantorDOB}}" onblur="validate(2)">
+                                    </div>
+                                </div>
+                                <div class="row justify-content-between text-left">
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3"> Relation <span class="text-danger">
+                                                *</span></label> <input type="text" id="email" name="email"
+                                                disabled        value=" {{en.guarantorDetails.gurantorRelationWithUser}}"  value=" {{en.address.localLandmark}}" placeholder="" onblur="validate(3)">
+                                    </div>
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3">Gurantor MobileNo  <span class="text-danger">
+                                                *</span></label> <input type="text" id="mob" name="mob" placeholder=""
+                                                disabled        value=" {{en.guarantorDetails.gurantorMobileNo}}" onblur="validate(4)"> </div>
+                                </div>
+                                <div class="row justify-content-between text-left">
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3"> Gurantor Address :-<span class="text-danger">
+                                                *</span></label>
+                                        <input type="text" id="job" name="job" placeholder=""
+                                        disabled    value=" {{en.guarantorDetails.gurantorAddress}}" onblur="validate(5)">
+                                    </div>
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3">Gurantor Occupation<span class="text-danger">
+                                                *</span></label>
+                                        <input type="text" id="job" name="job" placeholder=""
+                                        disabled    value=" {{en.guarantorDetails.gurantorOccupation}}" onblur="validate(5)">
+                                    </div>
+                                </div>
+                                <div class="row justify-content-between text-left">
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3">Gurantor Adhar Card<span class="text-danger">
+                                                *</span></label>
+                                        <input type="text" id="job" name="job" placeholder=""
+                                        disabled    value=" {{en.guarantorDetails.gurantorAdharCardNo}}" onblur="validate(5)">
+                                    </div>
+                                </div>
+
+                            </form>
+                        </fieldset>
+                        <hr style="color: red; ">
+                        <fieldset>
+                            <legend>Document Details</legend>
+
+
+
+                            <!-- <td scope="row"><img [src]="'data:image/jpeg;base64,'+d.photo" height="150"></td> -->
+
+                            <form class="form-card" onsubmit="event.preventDefault()">
+                                <div class="row justify-content-between text-left">
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3" style="font-weight: bold;">Adhar Card<span class="text-danger">
+                                                *</span></label> <img [src]="'data:image/jpeg;base64,'+en.documents.adharCard" height="150">
+                                    </div>
+
+
+                                    <div class="form-group col-sm-6 flex-column d-flex "> <label
+                                            class="form-control-label px-3" style="font-weight: bold;">Pancard<span class="text-danger">
+                                                *</span></label>
+                                                <img [src]="'data:image/jpeg;base64,'+en.documents.panCard" height="150">
+                                    </div>
+                                </div>
+                                <div class="row justify-content-between text-left mt-3">
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3" style="font-weight: bold;"> Address Proof <span class="text-danger">
+                                                *</span></label>  
+                                                <img [src]="'data:image/jpeg;base64,'+en.documents.addressProof" height="150">
+     
+                                    </div>
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3" style="font-weight: bold;">Photo  <span class="text-danger">
+                                                *</span></label>  
+                                                <img [src]="'data:image/jpeg;base64,'+en.documents.photo" height="150">
+                                            
+                                            </div>
+                                </div>
+                                <div class="row justify-content-between text-left mt-3">
+                                    <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                            class="form-control-label px-3" style="font-weight: bold;"> Signature :-<span class="text-danger">
+                                                *</span></label>
+                                                <img [src]="'data:image/jpeg;base64,'+en.documents.signature" height="150">
+                                         
+                                    </div>
+                                     
+                                </div>
+                                
+
+                            </form>
+                        </fieldset>
+                        <hr style="color: red; ">
+                       
+
+                       <div class="text-center">
+                           <button class="btn btn-outline-success " (click)="varifiedDoc(en.userId)">Document Verified</button>
+                        <button class="btn btn-outline-danger ms-5" (click)="rejectDoc(en.userId)">Reject Document</button>
+                       </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

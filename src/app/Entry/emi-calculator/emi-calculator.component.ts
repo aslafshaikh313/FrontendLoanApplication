@@ -16,25 +16,25 @@ export class EmiCalculatorComponent {
 
   ngOnInit(): void {
   }
-  filters: String;
+  filters: any;
   pemi = {
-    value: "25"
+    value: 25
   }
   remi = {
-    value: "8.5"
+    value: 8.5
   }
   temi = {
-    value: "20"
+    value: 20
   }
   memi = {
-    value: "240"
+    value: 240
   }
 
   query = {
-    amount: "",
-    interest: "",
-    tenureYr: "",
-    tenureMo: ""
+    amount: 0,
+    interest: 0,
+    tenureYr: 0,
+    tenureMo: 0
   }
 
   result = {
@@ -45,10 +45,9 @@ export class EmiCalculatorComponent {
   yrToggel: boolean;
   poptions: Options = {
     floor: 1,
-    ceil: 100,
+    ceil: 200,
     translate: (value: number, label: LabelType): string => {
       switch (label) {
-
         case LabelType.Low:
           return value + '<b>L</b>';
         case LabelType.High:
@@ -61,6 +60,7 @@ export class EmiCalculatorComponent {
   roptions: Options = {
     floor: 5,
     ceil: 20,
+    step:0.1,
     translate: (value: number, label: LabelType): string => {
       switch (label) {
         case LabelType.Low:
@@ -100,7 +100,7 @@ export class EmiCalculatorComponent {
       }
     }
   };
-
+   
 
   ngAfterViewInit() {
     this.update();
@@ -108,7 +108,7 @@ export class EmiCalculatorComponent {
 
   tbupdate(id) {
     if (id == 0) {
-      this.pemi.value = (Number(this.query.amount) / 100000).toString();
+      this.pemi.value = (Number(this.query.amount) / 100000);
     }
     else if (id == 1) {
       this.remi.value = this.query.interest;
@@ -129,13 +129,13 @@ export class EmiCalculatorComponent {
     var rateOfInterest = Number(this.remi.value);
     var monthlyInterestRatio = (rateOfInterest / 100) / 12;
 
-    this.query.amount = loanAmount.toString();
-    this.query.interest = rateOfInterest.toString();
+    this.query.amount = loanAmount;
+    this.query.interest = rateOfInterest ;
     if (this.yrToggel) {
-      this.query.tenureYr = this.temi.value.toString();
+      this.query.tenureYr = this.temi.value ;
     }
     else {
-      this.query.tenureMo = this.memi.value.toString();
+      this.query.tenureMo = this.memi.value ;
     }
 
     var top = Math.pow((1 + monthlyInterestRatio), numberOfMonths);
@@ -151,6 +151,7 @@ export class EmiCalculatorComponent {
     this.result.total = full.toFixed(0).toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     this.result.interest = interest.toFixed(0).toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
+
 
 
 }

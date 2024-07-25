@@ -7,5 +7,11 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./body-content.component.css']
 })
 export class BodyContentComponent {
-  
+  step=0;
+  next(){
+    this.step=this.step+1;
+  }
+  previous(){
+    this.step=this.step-1;
+  }
 }

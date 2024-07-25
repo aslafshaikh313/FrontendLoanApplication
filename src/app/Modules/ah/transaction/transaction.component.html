@@ -1,0 +1,140 @@
+<div class="row height d-flex justify-content-center align-items-center m-3">
+
+    <div class="col-md-8">
+
+        <div class="search">
+
+            <input type="text" class="form-control " name="search" [(ngModel)]="searchText" autocomplete="off"
+                placeholder="Search  ">
+
+        </div>
+
+    </div>
+    <div class="body">
+
+        <div class="container">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+
+                        <th scope="col">Name</th>
+
+                        <th scope="col">Email ID</th>
+                        <th scope="col">Pancard No</th>
+                        <th scope="col">Total Amount</th>
+                        <th scope="col">Tenure(Month)</th>
+
+
+                        <th scope="col">Show EMI</th>
+
+
+
+                    </tr>
+                </thead>
+                <tbody *ngFor="let en of AllApprovedRegister |filter:searchText , index as i">
+
+                    <tr *ngIf="en.loanDisburse!=null ">
+
+
+                        <td>{{en.userFirstName}}
+                            {{en.userLastName}}</td>
+                        <td>{{en.userEmailId}}</td>
+                        <td>{{en.userPanCardNo}}</td>
+                        <td> {{en.sanctionLetter.principalAmount}} </td>
+                        <td>{{ en.sanctionLetter.tenure}}</td>
+
+                        <td>
+                            <a style="cursor: pointer" (click)="openLg(content,en.userId)"><i class="fa fa-eye ms-3"
+                                    aria-hidden="true"></i>
+                            </a>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <ng-template #content let-modal>
+            <div class="modal-header ">
+                <h4 class="modal-title">EMI Transactions</h4>
+                <button type="button" class="btn-close" aria-label="Close"
+                    (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div>
+
+                    <!-- <table class="table">
+                        <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Installment No</th>
+                                <th>Date</th>
+                                <th>EMI </th>
+                                <th>Payment</th>
+                            </tr>
+                        </thead>
+
+                        <tbody *ngFor="let en of AllApprovedRegister | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize  ">
+ 
+                           
+                            
+
+                            <tr *ngFor="let e of en.emidetails | orderBy :'emiNo' ,index as i,">
+                                <td>{{i+1}}</td>
+                                <td>{{e.emiNo}}</td>
+                                <td>{{e.emiDate}}</td>
+                                <td>{{e.emiAmount}}</td>
+                                <td>
+                                    <button class="btn btn-success" (click)="paid(en.userId,e)">Paid</button>
+                                    <button class="btn btn-danger ms-3">Unpaid</button>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table> -->
+
+                    <div class="container">
+                        <div class="table-like">
+                            <div class="row">
+                                <div class="col">Installment No</div>
+                                <div class="col">Date</div>
+                                <div class="col">EMI</div>
+                                <div class="col">Payment</div>
+
+                            </div>
+                            <div *ngFor="let en of AllApprovedRegister">
+                                <div *ngIf="en.userId==Id">
+                                    <div class="row"
+                                        *ngFor="let e of en.emidetails | orderBy :'emiNo' | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize ,index as i ">
+                                        <div class="col"> {{e.emiNo}}</div>
+                                        <div class="col"> {{e.emiDate}}</div>
+                                        <div class="col"> {{e.emiAmount}}</div>
+                                        <div class="col">
+                                            <button class="btn btn-success" (click)="paid(en.userId,e)">Paid</button>
+                                            <button class="btn btn-danger ms-3"
+                                                (click)="unPaid(en.userId,e)">Unpaid</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div *ngFor="let en of AllApprovedRegister">
+                            <div *ngIf="en.userId==Id">
+                                <div style="display: flex;flex-direction: row; justify-content: center;" class="mt-3">
+                                    <ngb-pagination [pageSize]="12" [collectionSize]="en.sanctionLetter.tenure"
+                                        [(page)]="page" aria-label="Default pagination"></ngb-pagination>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" (click)="modal.close('Close click')">
+                    Close
+                </button>
+            </div>
+        </ng-template>
+    </div>

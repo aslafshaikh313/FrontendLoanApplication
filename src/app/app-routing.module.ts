@@ -7,6 +7,7 @@ import { RegisterComponent } from './Entry/register/register.component';
 import { EnquiryComponent } from './Entry/enquiry/enquiry.component';
 import { DashboardComponent } from './Admin-Dashboard/dashboard/dashboard.component';
 import { EmiCalculatorComponent } from './Entry/emi-calculator/emi-calculator.component';
+import { FAQSComponent } from './Entry/faq-s/faq-s.component';
 
 const routes: Routes = [
       {
@@ -23,6 +24,9 @@ const routes: Routes = [
           },
           {
             path:"enquiry",component:EnquiryComponent
+          },
+          {
+            path:"faq",component:FAQSComponent
           }
         ]
       },

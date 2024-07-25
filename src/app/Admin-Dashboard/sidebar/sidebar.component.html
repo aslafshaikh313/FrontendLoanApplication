@@ -1,27 +1,45 @@
-<div class="sidebar">
+  <div class="sidebar" style="background-color: #E9edf2;">
   <div class="side-header">
-      <h3>M<span>odern</span></h3>
+      <h5 style="color: gray;">Global<span>Finance</span></h5>
   </div>
 
   <div class="side-content">
       <div class="profile">
-          <div class="profile-img bg-img" style="background-image: url(../../../assets/icons/admin.jpeg)"></div>
-          <h4>David Green</h4>
-          <small>Art Director</small>
+          <div class="profile-img bg-img" style="background-image: url(../../../assets/images/images.png)"></div>
+
+          <h5>{{offices}}</h5>
           <hr>
       </div>
 
       <div class="side-menu">
-        <!-- {{menus|json}} -->
+        
         <div *ngFor="let menu of menus[0][userType] ">
           <ul>
-              <li>
-                    <a [routerLink]="[userType,menu.path]" ><b><i>{{menu.lable}}</i></b></a>
+              <li class="highlight">
+                    <a [routerLink]="[userType,menu.path]" routerLinkActive="active-class"><b><i>{{menu.lable}}</i></b></a>
               </li>
-            
+
 
           </ul>
         </div>
       </div>
   </div>
-</div>
+</div> 
+
+<!--  
+  <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+  
+  <label for="openSidebarMenu" class="sidebarIconToggle"  >
+      
+  </label>
+  <div id="sidebarMenu">
+    <ul class="sidebarMenuInner">
+      <li>Jelena Jovanovic <span>Web Developer</span></li>
+      <li><a href="https://vanila.io" target="_blank">Company</a></li>
+      <li><a href="https://instagram.com/plavookac" target="_blank">Instagram</a></li>
+      <li><a href="https://twitter.com/plavookac" target="_blank">Twitter</a></li>
+      <li><a href="https://www.youtube.com/channel/UCDfZM0IK6RBgud8HYGFXAJg" target="_blank">YouTube</a></li>
+      <li><a href="https://www.linkedin.com/in/plavookac/" target="_blank">Linkedin</a></li>
+    </ul>
+  </div> -->
+  

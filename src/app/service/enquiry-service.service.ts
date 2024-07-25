@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +22,8 @@ export class EnquiryServiceService {
     return this.http.get("http://localhost:9090/enquiry/getenquiry/"+data.userId);
   }
 
-  deleteByIdEnquiry(data)
+  deleteByIdEnquiry(data:any)
   {
-    return this.http.get("http://localhost:9090/enquiry/deleteenquiry/"+data.userId);
+    return this.http.delete("http://localhost:9090/enquiry/deleteenquiry/"+data.userId);
   }
 }

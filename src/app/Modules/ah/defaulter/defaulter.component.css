@@ -1,0 +1,61 @@
+  /* Add some padding to the body so the table is centered */
+  .body {
+    padding: 20px;
+  }
+
+  /* Add a hover effect to the table rows */
+  .table-hover tbody tr:hover {
+    background-color: #ffcdcd;
+    transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
+  }
+
+  /* Add an active effect to the table rows when clicked */
+  .table-active {
+    background-color: #e8e8e8 !important;
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+  }
+
+  /* Center the buttons in the last column */
+  .table .btn-group {
+    display: flex;
+    justify-content: center;
+  }
+/* encapsulation: ViewEncapsulation.None, */
+
+.dark-modal .modal-content {
+  background-color: #292b2c;
+  color: white;
+}
+.dark-modal .close {
+  color: white;
+}
+.light-blue-backdrop {
+  background-color: #5cb3fd;
+}
+
+.table-like {
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-like .row {
+  display: flex;
+}
+
+.table-like .col {
+  flex: 1;
+  padding: 8px;
+  width: auto;
+}
+
+.table-like .col:hover {
+  background-color: #f5f5f5;
+}
+
+.table-like .row:first-child {
+  font-weight: bold;
+  background-color: #f8f9fa;
+}

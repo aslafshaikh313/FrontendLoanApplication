@@ -1,0 +1,90 @@
+body {
+    color: #000;
+    overflow-x: hidden;
+    height: 100%;
+    background-image: url("https://i.imgur.com/GMmCQHC.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%
+}
+
+.card {
+    padding: 40px 40px;
+    
+    margin-bottom: 60px;
+    border: none !important;
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2)
+}
+
+.blue-text {
+    color: #00BCD4
+}
+
+.form-control-label {
+    margin-bottom: 0,
+
+}
+
+input,
+textarea,
+button {
+    padding: 8px 15px;
+    border-radius: 5px !important;
+    margin: 5px 0px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    font-size: 18px !important;
+    font-weight: 300
+}
+
+input:focus,
+textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #2700d4;
+    outline-width: 0;
+    font-weight: 400
+}
+
+.btn-block {
+    text-transform: uppercase;
+    font-size: 15px !important;
+    font-weight: 400;
+    height: 43px;
+    cursor: pointer
+}
+
+.btn-block:hover {
+    color: #fff !important
+}
+
+button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+.tacbox {
+    display:block;
+    padding: 1em;
+    margin: 2em;
+    border: 3px solid #ddd;
+    background-color: #eee;
+    max-width: 800px;
+  }
+  
+  .input {
+    height: 2em;
+    width: 2em;
+    vertical-align: middle;
+  }
+  /*
+  label {
+    outline: 2px dotted #f00;
+  }
+  
+  /*
+  label:after {
+    content: attr(for);
+  }*/

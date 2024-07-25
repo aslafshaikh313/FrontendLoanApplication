@@ -1,0 +1,61 @@
+<div class="row height d-flex justify-content-center align-items-center m-3">
+  <div class="col-md-8">
+    <div class="search">
+      <input
+        type="text"
+        class="form-control"
+        name="search"
+        [(ngModel)]="searchText"
+        autocomplete="off"
+        placeholder="Search  "
+      />
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="container">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email ID</th>
+            <th scope="col">Mobile No</th>
+            <th scope="col">Pancard No</th>
+            <th scope="col">Cibil Score</th>
+            <th scope="col">Cibil Status</th>
+            <th scope="col">DOC Status</th>
+
+            <th scope="col">Send Mail</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let en of AllRegister | filter : searchText; index as i">
+          <tr
+            *ngIf="
+              en.customerLoanStatus == 'DocumentVerified' ||
+              en.customerLoanStatus == 'DocumentRejected'
+            "
+          >
+            <td>{{ en.userFirstName }} {{ en.userLastName }}</td>
+            <td>{{ en.userEmailId }}</td>
+            <td>{{ en.userMobileNo }}</td>
+            <td>{{ en.userPanCardNo }}</td>
+            <td>{{ en.cibil.cibilScore }}</td>
+            <td style="color: rgb(0, 255, 13); font-weight: bold">
+              {{ en.cibil.cibilStatus }}
+            </td>
+            <td style="color: rgb(0, 255, 13); font-weight: bold">
+              {{ en.customerLoanStatus }}
+            </td>
+            <td>
+              <a
+                (click)="sendMail(en)"
+                style="cursor: pointer"
+                ><i class="fa fa-paper-plane ms-4" aria-hidden="true"></i
+              ></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -4,23 +4,25 @@
 
     <p class="mb-4" style="color: white;">Create a new account fill up the following form
     </p>
-
-    <input type="text"  id="username" formControlName="adminUserName" class="form-control mt-5" placeholder="Enter Username" required>
-
     <input type="email"  id="emailId" formControlName="adminEmailId" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="abc@gmail.com" required>
 
+    <input type="text"  id="username" formControlName="adminUserName" class="form-control mt-3" placeholder="Enter Username" required>
+
+ 
     <input type="password" id="password" formControlName="adminPassword"  class="form-control mt-3" placeholder="Enter Password " required>
+
+    <input type="password" id="password" formControlName="adminType"  class="form-control mt-3" placeholder="Enter Type " required>
 
     <div class="row w-100" style="margin-left: auto;margin-right: auto;">
       <div class="col-6">
     <div class="form-check" style="color: white;">
-      <input value="RE" class="form-check-input" type="radio" id="flexRadioDefault1" formControlName="adminDesignation">
+      <input value="Relational Executive" class="form-check-input" type="radio" id="flexRadioDefault1" formControlName="adminDesignation">
       <label class="form-check-label" for="flexRadioDefault1" >
         Relational Executive
       </label>
     </div>
     <div class="form-check" style="color: white;">
-      <input value="OE" class="form-check-input" type="radio" id="flexRadioDefault1" formControlName="adminDesignation">
+      <input value="Operatinal Executive" class="form-check-input" type="radio" id="flexRadioDefault1" formControlName="adminDesignation">
       <label class="form-check-label" for="flexRadioDefault1">
         Operatinal Executive
       </label>
@@ -35,13 +37,13 @@
     </div>
     <div class="col-6">
     <div class="form-check" style="color: white;">
-      <input value="CM" class="form-check-input" type="radio"  id="flexRadioDefault2" checked formControlName="adminDesignation">
+      <input value="Credit Manager" class="form-check-input" type="radio"  id="flexRadioDefault2" checked formControlName="adminDesignation">
       <label class="form-check-label" for="flexRadioDefault2">
         Credit Manager
       </label>
     </div>
     <div class="form-check" style="color: white;">
-      <input value="AH" class="form-check-input" type="radio"  id="flexRadioDefault2" checked formControlName="adminDesignation">
+      <input value="Account Head" class="form-check-input" type="radio"  id="flexRadioDefault2" checked formControlName="adminDesignation">
       <label class="form-check-label" for="flexRadioDefault2">
        Account Head
       </label>
